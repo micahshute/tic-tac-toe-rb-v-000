@@ -55,9 +55,10 @@ def turn(board)
 end
 
 def play(board)
-  9.times do
+  until over?(board) do
     turn(board)
   end
+  puts "#{winner(board)} wins!"
 end
 
 

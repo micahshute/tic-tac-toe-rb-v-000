@@ -58,7 +58,11 @@ def play(board)
   until over?(board) do
     turn(board)
   end
-  puts "#{winner(board)} wins!"
+  if won?(board)
+    puts "#{winner(board)} wins!"
+  else
+    puts "Draw!"
+  end
 end
 
 

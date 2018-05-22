@@ -4,6 +4,20 @@ def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
 end
 
+def turn_count(board)
+  turn = 0
+  board.each do |content|
+    if content == "X" || content == "O"
+      turn += 1
+    end
+  end
+  return turn
+end
+
+def current_player(board)
+  turn_count(board) % 2 == 0 ? "X" : "O"
+end
+
 def won?(board, who = false)
   moves = Hash.new
   moves["X"] = Set[]
@@ -54,4 +68,3 @@ WIN_COMBINATIONS = [
   [0,4,8],
   [2,4,6]
 ]
-
